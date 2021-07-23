@@ -36,3 +36,8 @@ Feel free to reach out to with any questions or for clarification.
 - MVC JS architecture
 
 ## Dev notes
+
+- Everything is saved to local storage
+- Add. delete and Search features are implemented.
+- Changed the layout little bit
+- user bootstrapA anad fontawesome
