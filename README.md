@@ -37,6 +37,12 @@ Feel free to reach out to with any questions or for clarification.
 
 ## Dev notes
 
+1. npm i
+2. use following commnad for hotreload 
+```json
+browser-sync start --server --files "*.css,*.js,*.html"
+```
+
 - Everything is saved to local storage
 - Add. delete and Search features are implemented.
 - Changed the layout little bit
