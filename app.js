@@ -47,12 +47,6 @@ class UI {
     setTimeout(() => document.querySelector(".alert").remove(), 9000);
   }
 
-  static searchEmployee() {
-    const searchBar = document.getElementById("search");
-    const rows = document.querySelectorAll("tbody tr ");
-    console.log(rows);
-  }
-
   static clearFields() {
     document.getElementById("employee-form").reset();
   }
@@ -108,6 +102,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+//Event: Update a Employee
+
+document.querySelector("#name").addEventListener("keyup", (e) => {
+  let inputText = e.target.value;
+  let employees = JSON.parse(localStorage.getItem("employees"));
+  const officeNum = document.querySelector("#officeNum").value;
+  const phoneNum = document.querySelector("#phoneNum").value;
+  if (employees.some((e) => e.name === inputText)) {
+    let update = document.querySelector(".submitBtn");
+    update.className = "bg-warning btn-block";
+    update.textContent = " Update Employee";
+
+  }
+
+  let index = employees.findIndex((element) => element.name === inputText);
+  (employees[index].officeNum) = officeNum;
+  (employees[index].phoneNum) = phoneNum;
+  console.log(employees[index]);
+  console.log(employees);
+});
 
 //Event: Add a Employe
 document.querySelector("#employee-form").addEventListener("submit", (e) => {
@@ -116,13 +130,11 @@ document.querySelector("#employee-form").addEventListener("submit", (e) => {
 
   //Get form values
   const name = document.querySelector("#name").value;
+
   const officeNum = document.querySelector("#officeNum").value;
   const phoneNum = document.querySelector("#phoneNum").value;
   // validate the form
-  let employees = JSON.parse(localStorage.getItem("employees"));
-  if (employees.some((e) => e.name === name)) {
-    UI.showAlert("Please enter unique name", "danger");
-  }else if (name === "" || officeNum === "" || phoneNum === "") {
+  if (name === "" || officeNum === "" || phoneNum === "") {
     UI.showAlert("Please fill in all the fields", "danger");
   } else {
     // Instatiate Employee

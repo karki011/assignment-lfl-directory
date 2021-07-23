@@ -36,13 +36,14 @@ Feel free to reach out to with any questions or for clarification.
 - MVC JS architecture
 
 ## Dev notes
+if the employee already exist form button will change to update employee info
 
 1. npm i
 2. use following commnad for hotreload 
 ```json
 browser-sync start --server --files "*.css,*.js,*.html"
 ```
-
+- Name field must be unique
 - Everything is saved to local storage
 - Add. delete and Search features are implemented.
 - Changed the layout little bit
